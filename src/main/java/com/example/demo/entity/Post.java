@@ -1,9 +1,6 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -28,7 +25,6 @@ public class Post {
     private String content;
 
     @CreatedDate
-    @Builder.Default
     @Column(name = "regDate", updatable = false)
     private LocalDateTime regDate = LocalDateTime.now();
 

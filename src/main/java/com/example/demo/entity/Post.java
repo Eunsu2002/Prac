@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -14,15 +15,16 @@ import java.time.LocalDateTime;
 public class Post {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pid")
-    private int pid;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)                     // 자동 입력
+    @Column(name = "pid")                                                   // DB 칼럼명 pid
+    private int pid;                                                        // 사용자 번호
 
+    @NotEmpty
     @Column(name = "nick_name")
-    private String nickName;
+    private String nickName;                                                // 사용자에게 받은 닉네임
 
-    @Column(nullable = false, length = 600)
-    private String content;
+    @Column(nullable = false, length = 600, name = "content")               // 칼럼명 content
+    private String content;                                                 // 내용
 
     @CreatedDate
     @Column(name = "regDate", updatable = false)

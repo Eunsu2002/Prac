@@ -7,9 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Getter
 @Setter
 @AllArgsConstructor
@@ -32,4 +29,10 @@ public class Auth {
     @NotEmpty
     @Column(unique = true, name = "nick_name")
     private String nickName;
+
+    public void setAuth(int aid){this.aid = aid;}
+
+    public void chagePassword(String password) {this.password = password;}
+
+    public void changeEmail(String email) {this.email = email;}
 }

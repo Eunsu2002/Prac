@@ -18,21 +18,17 @@ public class CustomUserDetailsService {
 
     private final AuthRepository authRepository;
 
-    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        log.info("loadUserByUsername : " + username );
+        log.info("loadUserByUsername " + username);
 
-        // DB 에 등록된 사용자 정보 불러오기
-        Optional<Auth> result = authRepository.findById(username);
+        Optional<Auth> result = authRepository.findById(username);      // DB -> 사용자 정보 불러오기
 
-        // 결과가 없는 경우 -> UserDetails 에 있는 예외 처리 클래스 호출
-        if (result.isEmpty()) {
-            throw new UsernameNotFoundException("username not found...........");
+        if (result.isEmpty()) {                                         // 결과 없는 경우 -> UserDetails에 예외처리 클래스 호충
+            throw new UsernameNotFoundException("username not found");
         }
 
         Auth auth = result.get();
 
-        // UserDetails 객체로 반환하는 userDetails 를 생성
         AuthSecurityDTO authSecurityDTO = new AuthSecurityDTO(
                 auth.getAid(),
                 auth.getPassword(),
@@ -40,8 +36,9 @@ public class CustomUserDetailsService {
                 auth.getNickName()
         );
 
-        log.info("AuthSecurityDTO : " + authSecurityDTO);
+        log.info("authSecurityDTO");
+        log.info(authSecurityDTO);
 
-        return AuthSecurityDTO;
+        return authSecurityDTO;
     }
 }

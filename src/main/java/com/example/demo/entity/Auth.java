@@ -34,5 +34,8 @@ public class Auth {
 
     public void chagePassword(String password) {this.password = password;}
 
+    public void chageNickName(String nickName) {this.nickName = nickName;}
+
     public void changeEmail(String email) {this.email = email;}
+
 }

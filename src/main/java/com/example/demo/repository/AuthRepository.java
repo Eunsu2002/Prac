@@ -19,5 +19,5 @@ public interface AuthRepository extends JpaRepository<Auth, Integer> {
     @Modifying
     @Transactional
     @Query("update Auth a set a.password = :password where a.aid = :aid")
-    void updatePassword(@Param("password") String password, @Param("aid") Integer aid);
+    void updatePassword(@Param("password") String password, @Param("aid") String aid);
 }

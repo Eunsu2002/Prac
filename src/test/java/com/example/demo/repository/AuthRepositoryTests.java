@@ -26,7 +26,7 @@ public class AuthRepositoryTests {
     public void insertAuth() {
         IntStream.rangeClosed(1, 100).forEach(i -> {
             Auth auth = Auth.builder()
-                    .aid("member"+i)
+                    .aid(i)
                     .password(passwordEncoder.encode("1111"))
                     .email("email"+i+"@test.com")
                     .build();
@@ -35,7 +35,7 @@ public class AuthRepositoryTests {
 
     @Test
     public void testRead() {
-        Optional<Auth> result = authRepository.getById("member100");
+        Optional<Auth> result = authRepository.findById("member100");
         Auth auth = result.orElseThrow();
 
         log.info(auth);

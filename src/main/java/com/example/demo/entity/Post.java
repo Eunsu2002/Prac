@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Post {
@@ -27,6 +28,7 @@ public class Post {
     private String content;                                                 // 내용
 
     @CreatedDate
+    @Builder.Default
     @Column(name = "regDate", updatable = false)
     private LocalDateTime regDate = LocalDateTime.now();
 
@@ -37,4 +39,6 @@ public class Post {
     public void changePost(String content){
         this.content = content;
     }
+
+    public void changeNickName(String nickName){this.nickName=nickName;}
 }

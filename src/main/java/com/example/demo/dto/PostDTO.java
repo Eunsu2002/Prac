@@ -16,14 +16,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PostDTO {
+
     private int pid;
-
-    @NotEmpty
-    @Size(min = 1, max = 100)
+    private String nickName;
     private String content;
-
-    @Builder.Default
-    private LocalDateTime regDate = LocalDateTime.now();
+    private LocalDateTime regDate;
     private LocalDateTime modDate;
 
 }

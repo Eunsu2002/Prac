@@ -2,13 +2,14 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+
+import java.util.Collection;
 
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Auth {
@@ -37,5 +38,6 @@ public class Auth {
     public void chageNickName(String nickName) {this.nickName = nickName;}
 
     public void changeEmail(String email) {this.email = email;}
+
 
 }

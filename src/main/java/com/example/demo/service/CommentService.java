@@ -10,8 +10,6 @@ public interface CommentService {
 
     CommentDTO read(int pid);
 
-    void modify(CommentDTO commentDTO);
-
     void remove(int pid);
 
     PageResponseDTO<CommentDTO> getListOfPost(int pid, PageRequestDTO pageRequestDTO);

@@ -21,6 +21,7 @@ public class Comment {
     private int cid;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_pid")
     private Post post;
 
     private String content;
@@ -34,7 +35,4 @@ public class Comment {
         this.content = content;
     }
 
-    public void setPost(int pid) {
-        this.post = Post.builder().pid(pid).build();
-    }
 }

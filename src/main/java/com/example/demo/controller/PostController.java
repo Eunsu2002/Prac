@@ -24,13 +24,13 @@ public class PostController {
 
     private final PostService postService;
 
-//    @GetMapping("/list")
-//    public void list(PageRequestDTO pageRequestDTO, Model model) {
-//
-//        PageResponseDTO<PostDTO> responseDTO = postService.list(pageRequestDTO);
-//
-//        model.addAttribute("responseDTO", responseDTO);
-//    }
+    @GetMapping("/list")
+    public void list(PageRequestDTO pageRequestDTO, Model model) {
+
+        PageResponseDTO<PostDTO> responseDTO = postService.list(pageRequestDTO);
+
+        model.addAttribute("responseDTO", responseDTO);
+    }
 
     @GetMapping("/register")
     public void registerGet() {}

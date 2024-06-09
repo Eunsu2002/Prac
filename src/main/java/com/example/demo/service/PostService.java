@@ -10,4 +10,5 @@ public interface PostService {
     PostDTO readOne(int pid);
     void modify(PostDTO postDTO);
     void remove(int pid);
+    PageResponseDTO<PostDTO> list(PageRequestDTO pageRequestDTO);
 }

@@ -7,6 +7,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -29,12 +31,19 @@ public class Post {
 
     @CreatedDate
     @Builder.Default
-    @Column(name = "regDate", updatable = false)
+    @Column(name = "reg_date", updatable = false)
     private LocalDateTime regDate = LocalDateTime.now();
 
     @LastModifiedDate
-    @Column(name = "modDate")
+    @Column(name = "mod_date")
     private LocalDateTime modDate;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();
+
+    public void addComment(Comment comment){
+        comments.add(comment);
+    }
 
     public void changePost(String content){
         this.content = content;
